@@ -1,1 +1,52 @@
 Hello World!!!
+lsblk
+lsblk -fs
+sudo fdisk /dev/nvme1n1
+m
+n
+p
+"enter"
+"enter"
+"enter"
+w
+lsblk -fs
+sudo mkfs.xfs /dev/nvme1n1p1
+sudo mkdir /mnt/Sathwik
+sudo mount /dev/nvme1n1p1 /mnt/Sathwik
+df -h
+sudo su
+blkid /dev/nvme1n1p1
+"copy uuid"
+nano /etc/fstab
+UUID="paste"
+"ctrlS ctrlX"
+reboot
+
+sudo su
+lsblk -fs
+df -h
+
+detach volume and attach new instace of same az
+mkdir /mnt/archana
+mount /dev/xvdf1 /mnt/archana
+df -h
+
+
+
+
+exp 3:
+sudo su
+mkdir efs
+yum install -y amazon-efs-utils
+mount.efs --version
+ls
+copy PASTE "MOUNT" 
+
+efs1: 
+cd efs
+touch a.txt
+ls
+
+efs2:
+cd efs
+ls
