@@ -18,18 +18,54 @@ sudo su
 blkid /dev/nvme1n1p1
 "copy uuid"
 nano /etc/fstab
-UUID="paste"
+UUID="paste" /mnt/archana   xfs   defaults,nofail   0   0
 "ctrlS ctrlX"
+mount -a
 reboot
 
 sudo su
 lsblk -fs
 df -h
 
+
+Step 12: Detach and Reattach Volume (Data Recovery Scenario)
+Detach:
+1.EC2 → Volumes → Select volume
+2.Actions → Detach volume
+Attach to another EC2 instance:
+1.Attach to new instance (same AZ)
+2.Login to new instance
+3.Create mount directory:
+mkdir /mnt/archana
+4.Mount the volume:
+mount /dev/xvdf1 /mnt/archana
+ All previous data will be available
+
+
 detach volume and attach new instace of same az
 mkdir /mnt/archana
 mount /dev/xvdf1 /mnt/archana
 df -h
+
+
+
+
+exp 3:
+sudo su
+mkdir efs
+yum install -y amazon-efs-utils
+mount.efs --version
+ls
+copy PASTE "MOUNT" 
+
+efs1: 
+cd efs
+touch a.txt
+ls
+
+efs2:
+cd efs
+ls
 
 
 
