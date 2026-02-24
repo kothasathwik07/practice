@@ -51,11 +51,24 @@ df -h
 
 
 exp 3:
+create 2 ec2s efs1 efs2 add nfs in secutiry rules and diff dubnets.
+create an efs in networks select valid azs.
+
+
 sudo su
 mkdir efs
 yum install -y amazon-efs-utils
 mount.efs --version
 ls
+
+Step 4: Attaching EFS to EC2 Instances
+1. Go to the EFS service in the AWS Management Console.
+2. Click on the target EFS file system.
+3. Click on the "Attach" button.
+4. Choose "Mount via DNS" option.
+5. Copy the displayed command. ,on both ec2 instances(powershell)
+6. Paste and execute the copied command in the terminal to mount the EFS file system onto the instance.
+
 copy PASTE "MOUNT" 
 
 efs1: 
@@ -68,21 +81,5 @@ cd efs
 ls
 
 
-
-
-exp 3:
-sudo su
-mkdir efs
-yum install -y amazon-efs-utils
-mount.efs --version
-ls
-copy PASTE "MOUNT" 
-
-efs1: 
-cd efs
-touch a.txt
-ls
-
-efs2:
-cd efs
-ls
+exp 4:
+management -> replication rules
